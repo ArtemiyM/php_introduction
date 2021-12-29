@@ -7,7 +7,7 @@
 
 
 <?php foreach ($albums as $key => $album){?>
-    <a href="album.php?album=<?php echo $album['id']?>">
-        Album name: <?php echo $album['name']?>
-    </a> <br/>
+<a href="album.php?album=<?php echo $album['id']?>">
+    Album name: <?php echo $album['name']?>
+</a> <br />
 <?php }?>

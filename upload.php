@@ -36,9 +36,9 @@ if($_POST){
 
     <button type="submit" class="btn btn-primary">Submit</button>
     <?php if(isset($result)){?>
-        <div class="alert alert-success" role="alert">
-            Фото успешно загружено!
-        </div>
+    <div class="alert alert-success" role="alert">
+        Фото успешно загружено!
+    </div>
     <?php }?>
     <!-- <div class="col-sm-auto">
       <form action=myworks.php method=post enctype=multipart/form-data>
