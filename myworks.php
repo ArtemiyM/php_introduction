@@ -12,16 +12,16 @@ if (isset($_GET['del'])) {
 ?>
 
 <div class="container">
-    <div class="row infoBar">
-        <div class="text-info col">
-            <p>amount of works:<?php echo count($Photos)?></p>
-            <?php if(isset($_GET["category"])){?>
-            <p>Фильтрация по категории: <?php echo $_GET["category"]?> <a href="myworks.php">Отмена фильтрации</a></p>
-            <?php }?>
-        </div>
-        <div class="row align-middle align-items-center">
+    <div class="text-center py-2 bg-dark text-white">
+        <p>Количество найденных фотографий: <?php echo count($Photos)?></p>
+        <?php if(isset($_GET["category"])){?>
+        <p>Фильтрация по категории: <?php echo $_GET["category"]?> <a href="myworks.php">Отмена фильтрации</a></p>
+        <?php }?>
+    </div>
+    <div class="container">
+        <div class="row">
             <?php foreach ($Photos as $key => $photo){?>
-            <div class="card col-sm-4" style="width: 18rem;">
+            <div class="card mx-auto p-auto" style="width: 18rem;">
                 <?php if(isset($photo["Photo_link"]) && $photo["Photo_link"]){?>
                 <img src="<?php echo $photo["Photo_link"]?>" class="card-img-top">
                 <?php }else{?>
@@ -36,3 +36,5 @@ if (isset($_GET['del'])) {
             </div>
             <?php }?>
         </div>
+    </div>
+</div>
