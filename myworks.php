@@ -13,7 +13,7 @@ if (isset($_GET['del'])) {
 
 <div class="container">
     <div class="text-center py-2 bg-dark text-white">
-        <p>Количество найденных фотографий: <?php echo count($Photos)?></p>
+        <p>Amount of serched photos: <?php echo count($Photos)?></p>
         <?php if(isset($_GET["category"])){?>
         <p>Фильтрация по категории: <?php echo $_GET["category"]?> <a href="myworks.php">Отмена фильтрации</a></p>
         <?php }?>

@@ -26,7 +26,7 @@ if (isset($_POST["albumName"])) {
 <form action="" method="POST" style="height: 500px;">
     <div class="row" style="height: 600px;">
         <div class="container col-sm-5 align-middle align-items-center">
-            <p class="text-center py-2 bg-dark text-white">Выберите фотографии и нажмите "сохранить"</p>
+            <p class="text-center py-2 bg-dark text-white">Pick photos, enter name and click "save"</p>
             <div class="mt-2">
                 <select class="form-select" name="Photos[]" multiple>
                     <?php foreach ($Photos as $key => $photo) { ?>

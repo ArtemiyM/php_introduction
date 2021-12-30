@@ -14,7 +14,7 @@ if(isset($_GET["id"])){
     <div class="card-body">
         <h5 class="card-title">Photo number: <?php echo $photo['id']?></h5>
         <h5 class="card-title">Category: <?php echo $photo['Category']?></h5>
-        <a href="myworks.php?category=<?php echo $photo['Category']?>" class="btn btn-primary">Go somewhere</a>
+        <a href="myworks.php?category=<?php echo $photo['Category']?>" class="btn btn-primary">Filter by category</a>
     </div>
 </div>
 
