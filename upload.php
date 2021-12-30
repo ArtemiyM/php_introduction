@@ -25,7 +25,7 @@ if($_POST){
 ?>
 <form method="post">
     <div class="row" style="height: 500px;">
-        <div class="container col-sm-5 bg-dark text-white align-middle p-3" >
+        <div class="container col-sm-5 bg-dark text-white align-middle p-3">
             <div class="text-center py-2">
                 <label for="Photo_link" class="col-sm-4 control-label">Link to photo</label>
                 <input type="text" name="Photo_link" class="form-control" id="Photo_link">
@@ -35,10 +35,10 @@ if($_POST){
                 <input type="text" name="Category" class="form-control" id="Category">
             </div>
             <div class="button-wrapper" style="text-align: center;">
-            <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
         </div>
-        </div>
-        
+
         <?php if(isset($result)){?>
         <div class="alert alert-success" role="alert">
             Фото успешно загружено!
