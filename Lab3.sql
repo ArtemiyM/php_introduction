@@ -1,0 +1,139 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Dec 31, 2021 at 01:41 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `Lab3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Albums`
+--
+
+CREATE TABLE `Albums` (
+  `id` int(11) NOT NULL,
+  `name` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Albums`
+--
+
+INSERT INTO `Albums` (`id`, `name`) VALUES
+(82, 'test1'),
+(83, 'Test3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `album_photos`
+--
+
+CREATE TABLE `album_photos` (
+  `photo_id` int(11) NOT NULL,
+  `album_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `album_photos`
+--
+
+INSERT INTO `album_photos` (`photo_id`, `album_id`) VALUES
+(8, 82),
+(15, 82),
+(14, 83),
+(15, 83),
+(16, 83);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Photo`
+--
+
+CREATE TABLE `Photo` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `Photo_link` blob NOT NULL,
+  `Category` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Photo`
+--
+
+INSERT INTO `Photo` (`id`, `user_id`, `Photo_link`, `Category`) VALUES
+(8, 14, 0x68747470733a2f2f73312e317a6f6f6d2e72752f626967302f3731392f42656c6c69735f47726173735f426f6b65685f3538343434315f31323830783737312e6a7067, 'природа'),
+(10, 1, 0x68747470733a2f2f696d6167652e6672656570696b2e636f6d2f667265652d766563746f722f6e696768742d636974792d696e2d666f672d757262616e2d6261636b67726f756e645f313434312d323833312e6a7067, 'Город'),
+(11, 1, 0x68747470733a2f2f61766174616e706c75732e636f6d2f66696c65732f7265736f75726365732f6f726967696e616c2f3561646333613934383261303731363265633434643433372e6a7067, 'Город'),
+(12, 1, 0x68747470733a2f2f61766174616e706c75732e636f6d2f66696c65732f7265736f75726365732f6f726967696e616c2f3561646333613934383261303731363265633434643433372e6a7067, 'Город'),
+(13, 1, 0x68747470733a2f2f7777772e62696c6574696b2e6165726f2f75706c6f61642f6d656469616c6962726172792f3830372f38303766323632623630646133393266316530396161366433336632306139622e706e67, 'Люди'),
+(14, 1, 0x68747470733a2f2f626967706963747572652e72752f77702d636f6e74656e742f75706c6f6164732f323031352f31312f6e6f70686f746f73686f7032392d383030783533322e6a7067, 'Животные'),
+(15, 1, 0x68747470733a2f2f7777772e7072696b6f6c2e72752f77702d636f6e74656e742f67616c6c6572792f6f63746f6265722d323031392f7072696b6f6c2d32353130323031392d3030312e6a7067, 'Животные'),
+(16, 1, 0x68747470733a2f2f696e737461786d696e692e72752f75706c6f61642f626c6f672f766f646f656d362e6a7067, 'Люди'),
+(17, 1, 0x68747470733a2f2f737461746963372e6465706f73697470686f746f732e636f6d2f313331343234312f3738392f692f3630302f6465706f73697470686f746f735f373839303639382d73746f636b2d70686f746f2d6665726f63696f75732d6c696f6e2e6a7067, 'Животные');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Albums`
+--
+ALTER TABLE `Albums`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Photo`
+--
+ALTER TABLE `Photo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKC_link` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Albums`
+--
+ALTER TABLE `Albums`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
+--
+-- AUTO_INCREMENT for table `Photo`
+--
+ALTER TABLE `Photo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Photo`
+--
+ALTER TABLE `Photo`
+  ADD CONSTRAINT `FKC_link` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
