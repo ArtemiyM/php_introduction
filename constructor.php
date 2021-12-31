@@ -5,18 +5,20 @@ include_once "core/db.php";
 
 <?php
 if (isset($_POST["albumName"])) {
-  //var_dump($_POST);
   $albumname = htmlspecialchars($_POST["albumName"]);
   $albumPhotos = $_POST["Photos"];
 
   $sqlString = "INSERT INTO Albums (name) VALUES ('$albumname')";
-
+  
   try {
-    $albumid = $pdo->exec($sqlString);
+    $pdo->exec($sqlString);
   } catch (PDOException $e) {
     echo $e->getMessage();
   }
-
+  
+  $albumid = $pdo->lastInsertId();
+  // var_dump($albumid);
+  
   foreach ($albumPhotos as $key => $photo) {
     $pdo->exec("INSERT INTO album_photos (photo_id,album_id) VALUES ('$photo','$albumid')");
   }
